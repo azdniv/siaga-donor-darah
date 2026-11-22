@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/auth_provider.dart';
+import 'admin_verify_tab.dart';
 import 'home_tab.dart';
 import 'placeholder_tab.dart';
 import 'profile_tab.dart';
+import 'requests_tab.dart';
 
 class _TabDef {
   final String label;
@@ -44,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
           label: 'Permintaan',
           icon: Icons.list_alt_outlined,
           selectedIcon: Icons.list_alt,
-          builder: _requestsPlaceholder,
+          builder: _requests,
         ),
         const _TabDef(
           label: 'Undangan',
@@ -65,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
           label: 'Verifikasi',
           icon: Icons.verified_outlined,
           selectedIcon: Icons.verified,
-          builder: _verifyPlaceholder,
+          builder: _verify,
         ),
         _TabDef(
           label: 'Statistik',
@@ -81,22 +83,14 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ];
 
-  static Widget _requestsPlaceholder() => const PlaceholderTab(
-        icon: Icons.bloodtype_outlined,
-        title: 'Permintaan darah',
-        description: 'Buat dan pantau permintaan darah. Menyusul di tahap berikutnya.',
-      );
+  static Widget _requests() => const RequestsTab();
+
+  static Widget _verify() => const AdminVerifyTab();
 
   static Widget _invitationsPlaceholder() => const PlaceholderTab(
         icon: Icons.mail_outline,
         title: 'Undangan donor',
         description: 'Undangan dari pemohon di sekitarmu akan muncul di sini.',
-      );
-
-  static Widget _verifyPlaceholder() => const PlaceholderTab(
-        icon: Icons.verified_outlined,
-        title: 'Verifikasi permintaan',
-        description: 'Daftar permintaan yang menunggu verifikasi admin.',
       );
 
   static Widget _statsPlaceholder() => const PlaceholderTab(

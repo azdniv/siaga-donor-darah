@@ -11,4 +11,7 @@ class AppConfig {
 
   /// Masa jeda antar donor (hari). Harus sama dengan DONOR_INTERVAL_DAYS di API.
   static const int donorIntervalDays = 90;
+
+  /// Tahap radius pencarian pendonor (km). Harus sama dengan RADIUS_STAGES_KM di API.
+  static const List<int> radiusStagesKm = [3, 5, 10, 25, 50];
 }
