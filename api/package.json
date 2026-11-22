@@ -1,0 +1,22 @@
+{
+  "name": "siaga-donor-darah-api",
+  "version": "1.0.0",
+  "description": "REST API Aplikasi Siaga Donor Darah",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node --test \"test/*.test.js\"",
+    "test:e2e": "STAGE_TIMEOUT_MIN=0 node test/e2e.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.11.0",
+    "node-cron": "^3.0.3"
+  }
+}
