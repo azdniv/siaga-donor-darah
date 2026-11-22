@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../providers/auth_provider.dart';
 import 'admin_verify_tab.dart';
 import 'home_tab.dart';
+import 'invitations_tab.dart';
 import 'placeholder_tab.dart';
 import 'profile_tab.dart';
 import 'requests_tab.dart';
@@ -52,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
           label: 'Undangan',
           icon: Icons.mail_outline,
           selectedIcon: Icons.mail,
-          builder: _invitationsPlaceholder,
+          builder: _invitations,
         ),
         const _TabDef(
           label: 'Profil',
@@ -87,11 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   static Widget _verify() => const AdminVerifyTab();
 
-  static Widget _invitationsPlaceholder() => const PlaceholderTab(
-        icon: Icons.mail_outline,
-        title: 'Undangan donor',
-        description: 'Undangan dari pemohon di sekitarmu akan muncul di sini.',
-      );
+  static Widget _invitations() => const InvitationsTab();
 
   static Widget _statsPlaceholder() => const PlaceholderTab(
         icon: Icons.bar_chart_outlined,
