@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../providers/notification_provider.dart';
 import '../models/blood_request.dart';
 import '../services/api_client.dart';
 import '../services/request_service.dart';
@@ -21,9 +22,28 @@ class _AdminVerifyTabState extends State<AdminVerifyTab> {
   bool _loading = true;
   String? _error;
 
+  late final NotificationProvider _notif;
+  int _notifVersion = 0;
+
+  void _onNotif() {
+    if (_notif.version != _notifVersion) {
+      _notifVersion = _notif.version;
+      _load();
+    }
+  }
+
+  @override
+  void dispose() {
+    _notif.removeListener(_onNotif);
+    super.dispose();
+  }
+
   @override
   void initState() {
     super.initState();
+    _notif = context.read<NotificationProvider>();
+    _notifVersion = _notif.version;
+    _notif.addListener(_onNotif);
     _service = RequestService(context.read<ApiClient>());
     _load();
   }
