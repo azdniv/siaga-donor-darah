@@ -25,7 +25,7 @@ class SiagaApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        title: 'Siaga Donor Darah',
+        title: 'SiagaDarah',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           useMaterial3: true,
